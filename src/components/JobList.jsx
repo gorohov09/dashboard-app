@@ -1,9 +1,11 @@
-import { selectAllPositions } from 'store/positions/position-selectors';
+import { selectVisiblePositions } from 'store/positions/position-selectors';
 import { JobPosition } from './JobPosition';
 import { useSelector } from 'react-redux';
+import { selectAllFilters } from 'store/filters/filters-selectors';
 
 const JobList = () => {
-  const positions = useSelector(selectAllPositions);
+  const filters = useSelector(selectAllFilters);
+  const positions = useSelector((state) => selectVisiblePositions(state, filters));
 
   return (
     <div className='job-list'>

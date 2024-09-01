@@ -9,6 +9,9 @@ const FilterPanel = () => {
   const filters = useSelector(selectAllFilters);
   const dispatch = useDispatch();
 
+  if (filters.length === 0)
+    return null;
+
   return (
     <Card className="filter-panel">
       <div className="filter-panel-wrapper">
@@ -17,7 +20,7 @@ const FilterPanel = () => {
             <Badge key={filter} variant="clearable" onClear={() => dispatch(removeFilter(filter))}>{filter}</Badge>
           ))}
         </Stack>
-        <button className='link' onClick={() => dispatch(clearAllFilters())}>Clear</button>
+        <button className='link' onClick={() => dispatch(clearAllFilters)}>Clear</button>
       </div>
     </Card>
   )

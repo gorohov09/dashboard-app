@@ -4,7 +4,7 @@ const positionsSlice = createSlice({
     name: '@@positions',
     initialState: [],
     reducers: {
-        addPositions: (state, action) => {
+        addPositions: (_, action) => {
             return [...action.payload]
         }
     }
